@@ -131,6 +131,12 @@ export const ganttDateRange = (
       newEndDate = startOfDate(newEndDate, "day");
       newEndDate = addToDate(newEndDate, 1, "day");
       break;
+    case ViewMode.HalfHour:
+      newStartDate = startOfDate(newStartDate, "hour");
+      newStartDate = addToDate(newStartDate, -1 * preStepsCount, "hour");
+      newEndDate = startOfDate(newEndDate, "day");
+      newEndDate = addToDate(newEndDate, 1, "day");
+      break;
   }
   return [newStartDate, newEndDate];
 };
@@ -164,6 +170,9 @@ export const seedDates = (
         break;
       case ViewMode.Hour:
         currentDate = addToDate(currentDate, 1, "hour");
+        break;
+      case ViewMode.HalfHour:
+        currentDate = addToDate(currentDate, 30, "minute");
         break;
     }
     dates.push(currentDate);

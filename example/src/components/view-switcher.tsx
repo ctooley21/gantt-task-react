@@ -15,6 +15,12 @@ export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
     <div className="ViewContainer">
       <button
         className="Button"
+        onClick={() => onViewModeChange(ViewMode.HalfHour)}
+      >
+        Half of Hour
+      </button>
+      <button
+        className="Button"
         onClick={() => onViewModeChange(ViewMode.Hour)}
       >
         Hour
